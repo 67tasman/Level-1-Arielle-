@@ -11,8 +11,8 @@ public static void main(String[] args) {
 	Handy.eat();
 	System.out.println(Handy.getName());
 	Smurf Papa = new Smurf("Papa");
-	System.out.println(Papa.getName());
-	System.out.println(Papa.getHatColor());
-	System.out.println(Papa.isGirlOrBoy());
-}
+	System.out.println(Papa.getName() + ". I'm a " + Papa.isGirlOrBoy() + " and have a " + Papa.getHatColor() + " hat.");
+	Smurf Smurfette = new Smurf("Smurfette");
+	System.out.println(Smurfette.getName() + ". I'm a " + Smurfette.isGirlOrBoy() + " and have a " + Smurfette.getHatColor() + " hat.");
+	}
 }
