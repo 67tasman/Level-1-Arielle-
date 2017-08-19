@@ -16,6 +16,7 @@
 	 
 	 // Complete steps 1 - 7 before you test
 	 // 1. Make a JFrame variable 
+	
 		JFrame frame;
 	 
 	 	HashMap<Integer,String> images = new HashMap<Integer, String>();
@@ -27,6 +28,7 @@
 	 	Date timeAtStart;
 	 	private  void makeAlbum() {
 	 // 2. add 4 images which match keyboard keys like this: images.put(new Integer(KeyEvent.VK_UP), "image.jpg");
+	 		timeAtStart = new Date();
 	 		images.put(new Integer(KeyEvent.VK_UP), "up.png");
 	 		images.put(new Integer(KeyEvent.VK_DOWN), "down.png");
 	 		images.put(new Integer(KeyEvent.VK_LEFT), "left.png");
@@ -44,18 +46,26 @@ showImage();
 	    	//17. if the keyCode matches the imageIndex and "Simon says..."  increase their score
 	    	if(keyCode == imageIndex && says){
 	    		points = points + 1;
+	    		speak("Correct");
 	    	}
 	    	//18.   if the keyCode doesn't match the imageIndex and "Simon didn't say..."  increase their score	
 	    	else if(keyCode != imageIndex && !says){
 	    		points = points + 1;
+	    		speak("Correct");
 	    	}
-	    	System.out.println(points);
+	    	else
+	    		speak("No sorry");
+		
+	   
 	    	//19. Use the speak method to tell the user if they were correct or not
 	    	//13. increment tries by 1
 	  	tries = tries + 1;
 	    	//14. if tries is greater than 9 (or however many you want)
 	    	if (tries > 4){
-	    		
+	    		 Date timeAtEnd = new Date();
+	    		 System.out.println(points);
+	    		 System.out.println((timeAtEnd.getTime()-timeAtStart.getTime())/1000);
+	    		 
 	    	
 	    	//15.    	exit the program
 	    		System.exit(0);
@@ -107,12 +117,20 @@ showImage();
 	  	  } catch (Exception e) {
 	  	   e.printStackTrace();
 	  	  }
-	   	}
+	  	
+	  	 
+		
+		 //System.exit(0);
+	   	
+	  }
 		public static void main(String[] args) throws Exception {
 		 new SimonSaysRecipe().makeAlbum();
 		}
+		
+	
+	
 	}
-
+	
 	/* 
 	* 20. add a timer
 	* ~~~ where the code starts running ~~~
