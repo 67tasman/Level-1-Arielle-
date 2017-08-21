@@ -2,7 +2,7 @@
 public class PersonRunner {
 public static void main(String[] args) {
 
-Person Rick = new Person();
+Person Rick = new Person(70,"blue","male",6);
 System.out.println("Rick is a "+ Rick.getAge() + " year old " + Rick.getGender() + " with " + Rick.getHairColor() + " and is " + Rick.getHeight() + "feet tall.");
 
 Rick.setAge(70);
