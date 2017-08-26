@@ -50,26 +50,37 @@ frame.setVisible(true);
 		// 2. Give your frame a title
 		frame.setTitle("Jeopardy");
 		// 3. Create a JPanel variable to hold the header using the createHeader method
-JPanel panel = createHeader("Science & Technology");
+JPanel panel = createHeader("Very simple questions about the colors of things");
 		// 4. Add the header component to the quizPanel
 		quizPanel.add(panel);
 		// 5. Add the quizPanel to the frame
 frame.add(quizPanel);
 		
 		// 6. Use the createButton method to set the value of firstButton 
-	JButton firstButton = createButton("$200");
+	firstButton = createButton("$200");
 	// 7. Add the firstButton to the quizPanel
 		quizPanel.add(firstButton);
 		// 8. Write the code inside the createButton() method below. Check that your game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
 		
 		// 9. Use the secondButton variable to hold a button using the createButton method
-		JButton secondButton = createButton("$400");
+		secondButton = createButton("$400");
 		// 10. Add the secondButton to the quizPanel
-		panel.add(secondButton);
+		quizPanel.add(secondButton);
+
+		thirdButton = createButton("$600");
+		
+		quizPanel.add(thirdButton);
+
+		fourthButton = createButton("$800");
+		
+		quizPanel.add(fourthButton);
 		
 	// 11. Add action listeners to the buttons (2 lines of code)
 	secondButton.addActionListener(this);
 	firstButton.addActionListener(this);
+	thirdButton.addActionListener(this);
+	fourthButton.addActionListener(this);
+	
 
 		// 12. Fill in the actionPerformed() method below
 				
@@ -87,6 +98,7 @@ frame.add(quizPanel);
 	 *
 	 * [optional] Use the showImage or playSound methods when the user answers a question 
 	 */
+	
 	private JButton createButton(String dollarAmount) {
 		// Create a new JButton
 		JButton button = new JButton("test");
@@ -101,17 +113,29 @@ frame.add(quizPanel);
 	public void actionPerformed(ActionEvent arg0) {
 		// Remove this temporary message:
 
-		// Use the method that plays the jeopardy theme music.
+		// Use the method that plays the Jeopardy theme music.
 playJeopardyTheme();
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
-		if(buttonPressed.equals(firstButton)) {
+		if(buttonPressed==firstButton) {
 		
 		
 			// Call the askQuestion() method
-			askQuestion("What color is the sky", "blue", 200);
+			askQuestion("What color is the sky?", "blue", 200);
 		
 		}
+		else if(buttonPressed==secondButton){
+			
+			askQuestion("What color is grass?", "green", 400);
+	}
+		else if(buttonPressed==thirdButton){
+		
+		askQuestion("What color are the clouds?", "white", 600);
+}
+else if(buttonPressed==fourthButton){
+			
+			askQuestion("What color is space?", "black", 800);
+	}
 		else {
 			System.out.println("not first");
 		}
@@ -134,18 +158,26 @@ playJeopardyTheme();
 		// Use a pop up to ask the user the question
 		String answer= JOptionPane.showInputDialog(question);
 		// If the answer is correct
-		if (answer == correctAnswer){
+		if (answer.equals(correctAnswer)){
 			
 		
 			// Increase the score by the prizeMoney
 			score= score + prizeMoney;
+			JOptionPane.showMessageDialog(null, "Correct! Score: "+ score);
+			System.out.println(score);
+			updateScore();
+		}
+		else{
+			score= score - prizeMoney;
+			JOptionPane.showMessageDialog(null,"The answer is "+ correctAnswer + "  Score:"+score);
+			updateScore();
 		}
 			// Call the updateScore() method
-			updateScore();
+			
 			// Pop up a message to tell the user they were correct
 			
 		// Otherwise
-		
+			
 			// Decrement the score by the prizeMoney
 			
 			// Pop up a message to tell the user the correct answer
