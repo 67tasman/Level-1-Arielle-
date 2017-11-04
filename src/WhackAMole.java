@@ -9,9 +9,9 @@ import javax.swing.JPanel;
 
 
 public class WhackAMole implements ActionListener {
+	static Random r = new Random();
 	public static void main(String[] args) {
 		WhackAMole whack = new WhackAMole();
-		Random r = new Random();
 		int rand = r.nextInt(25); 
 		whack.drawButtons(rand);
 	
@@ -34,7 +34,7 @@ public class WhackAMole implements ActionListener {
 		}
 		buttons[rand].setText("mole!");
 		j = rand;
-		System.out.println(j);
+		//System.out.println(j);
 		frame.setSize(400, 200);
 		frame.setVisible(true);
 	}
@@ -54,6 +54,15 @@ public class WhackAMole implements ActionListener {
 			frame.dispose();
 		 count = count+1;
 		 System.out.println(count);
-		}
+		 drawButtons(r.nextInt(25));
+		 if(count>9) {
+			 System.exit(0);
+			}
+		
 	}
+		else {
+			System.out.println("idiot");
+		}
+	
+}
 }
