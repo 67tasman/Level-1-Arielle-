@@ -17,6 +17,10 @@ public class SimpleCalculator implements ActionListener{
 	JLabel l;
 	String string_num1;
 	String string_num2;
+	int sum;
+	int sub;
+	int pro;
+	double div;
 	public static void main(String[] args) {
 		SimpleCalculator sc = new SimpleCalculator();
 		sc.GUI();
@@ -24,7 +28,7 @@ public class SimpleCalculator implements ActionListener{
 	private void GUI() {
 		frame = new JFrame();
 		p = new JPanel();
-		l = new JLabel("a");
+		l = new JLabel();
 		frame.add(p);
 		text1 = new JTextField(15);
 		text2 = new JTextField(15);
@@ -55,10 +59,38 @@ public class SimpleCalculator implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==(buttons[0])) {
+			string_num1 = text1.getText();
+			string_num2 = text2.getText();
 		int num1 = Integer.parseInt(string_num1);
 		int num2 = Integer.parseInt(string_num2);
-		int sum = num1+num2;
+		sum = num1+num2;
+		l.setText(""+sum);
 	}
-
+		if(e.getSource()==(buttons[1])) {
+			string_num1 = text1.getText();
+			string_num2 = text2.getText();
+			int num1 = Integer.parseInt(string_num1);
+			int num2 = Integer.parseInt(string_num2);
+			sub = num1-num2;
+			l.setText(""+sub);
+		}
+		if(e.getSource()==(buttons[2])) {
+			string_num1 = text1.getText();
+			string_num2 = text2.getText();
+			int num1 = Integer.parseInt(string_num1);
+			int num2 = Integer.parseInt(string_num2);
+			pro = num1*num2;
+			l.setText(""+pro);
+		}
+		if(e.getSource()==(buttons[3])) {
+			string_num1 = text1.getText();
+			string_num2 = text2.getText();
+			int num1 = Integer.parseInt(string_num1);
+			int num2 = Integer.parseInt(string_num2);
+			double dnum1 = (double) num1;
+			double dnum2 = (double) num2;
+			div = dnum1 / dnum2;
+			l.setText(""+div);
+		}
 	}
 }
