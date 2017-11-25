@@ -37,24 +37,7 @@ frame.pack();
 		}
 	
 	
-int convert(String binary) {
-			if(binary.length() != 8){
-				JOptionPane.showMessageDialog(null, "Enter 8 bits, silly!!!");
-				return 0;
-			}
-			 if(!Pattern.matches("\2", binary)) {
-				 JOptionPane.showMessageDialog(null, "Binary can only contain 1s or 0s, silly!!!");
-					return 0;
-			 }
-			try {
-				int asciiValue = Integer.parseInt(binary, 2);
-				return asciiValue;
-			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null, "Enter a binary, silly!!!");
-				//question.setText("");
-				return 0;
-			}
-		}
+
 
 String convertString(String binary) {
   	 int asciiValue = Integer.parseInt(binary, 2);
@@ -65,9 +48,9 @@ String convertString(String binary) {
 public void actionPerformed(ActionEvent e) {
 	if (e.getSource()==(b)) {
 		String text = input.getText();
-		int btext = convert(convertString(text));
+		String btext = convertString(text);
 		System.out.println(btext);
-		//answer.setText(btext);
+		answer.setText(btext);
 	}
 	
 }
